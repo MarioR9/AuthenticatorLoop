@@ -89,62 +89,124 @@ public class AutheLoop extends Application {
             if (username.getText().equals(name) && password.getText().equals(pass)) {
 
 
-                int GroupSize =0;
+               int GroupSize = 0;
 
-                TextInputDialog dialog2 = new TextInputDialog("Ex:1...");
-                dialog2.setTitle("Enter Numbers");
-                dialog2.setHeaderText("Number of Players");
-                dialog2.setContentText("Enter here --> ");
-                dialog2.setGraphic(new ImageView(this.getClass().getResource("Trooper.png").toString()));
+        TextInputDialog dialog2 = new TextInputDialog("Ex:1...");
+        dialog2.setTitle("Enter Numbers");
+        dialog2.setHeaderText("Number of People");
+        dialog2.setContentText("Enter here --> ");
+        dialog2.setGraphic(new ImageView(this.getClass().getResource("People.png").toString()));
+
+        Stage stagedialog = (Stage) dialog2.getDialogPane().getScene().getWindow();
+        stagedialog.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+        dialog2.showAndWait();
+
+        int NumOfPeople = Integer.parseInt(dialog2.getResult());
+
+        if (NumOfPeople > 10) {
+            GroupSize = NumOfPeople / 2;
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Number Of People");
+            alert.setHeaderText(null);
+            alert.setContentText("Group Size is grater than 10 people " + "\n" + "Number of People is: " + NumOfPeople + "\n" + "Group Size " + GroupSize);
+
+            Stage stage1 = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage1.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+            alert.showAndWait();
+
+        } else if (NumOfPeople > 3 && NumOfPeople < 10) {
+            GroupSize = NumOfPeople / 3;
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Number Of People");
+            alert.setHeaderText(null);
+            alert.setContentText("Group Size is between 3 and 10 people" + "\n" + "Number of People is: " + NumOfPeople + "\n" + "Group Size " + GroupSize);
+
+            Stage stage2 = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage2.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+            alert.showAndWait();
+
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Number Of People");
+            alert.setHeaderText(null);
+            alert.setContentText("The number of people has to be at least 3." + "\n" + "Number of People " + NumOfPeople + " Group Size " + GroupSize);
+
+            Stage stage3 = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage3.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+            alert.showAndWait();
+            
+            
+
+        }
+
+//TeamSize
+	
+
+        int TeamSize = 0;
+
+        TextInputDialog dialogTeam = new TextInputDialog("Ex:1...");
+        dialogTeam.setTitle("Enter Numbers");
+        dialogTeam.setHeaderText("Number of Players");
+        dialogTeam.setContentText("Enter here --> ");
+        dialogTeam.setGraphic(new ImageView(this.getClass().getResource("Player.png").toString()));
+
+	 Stage stageTeam = (Stage) dialogTeam.getDialogPane().getScene().getWindow();
+            stageTeam.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+        dialogTeam.showAndWait();
+
+        int NumOfPlayers = Integer.parseInt(dialogTeam.getResult());
+
+        if (NumOfPlayers >11 && NumOfPlayers <55) {
+            TeamSize = NumOfPlayers / 11;
+
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Number Of People");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Team Size is between 11 and 55 Players " + "\n" + "Number of Players is: " + NumOfPlayers + "\n" + "Team Size " + TeamSize);
+
+            Stage stage4 = (Stage) alert1.getDialogPane().getScene().getWindow();
+            stage4.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+            alert1.showAndWait();
+ 	    System.exit(0);
+
+        } else if (NumOfPlayers > 55) {
+            TeamSize = 1;
+
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Number Of Players");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Team Size is Greater than 55" + "\n" + "Number of Players is: " + NumOfPlayers + "\n" + " eam Size " + TeamSize);
+
+            Stage stage5 = (Stage) alert1.getDialogPane().getScene().getWindow();
+            stage5.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+            alert1.showAndWait();
+ 	    System.exit(0);
+
+        } else {
+
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("Number Of Players");
+            alert1.setHeaderText(null);
+            alert1.setContentText("The number of Players has to be at least 3." + "\n" + "Number of Players is: " + NumOfPlayers + " Team Size " + TeamSize);
+
+            Stage stage6 = (Stage) alert1.getDialogPane().getScene().getWindow();
+            stage6.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
+
+            alert1.showAndWait();
 
 
-                Stage stage2 = (Stage) dialog2.getDialogPane().getScene().getWindow();
-                stage2.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
-
-                dialog2.showAndWait();
-
-                int NumOfPlayers = Integer.parseInt(dialog2.getResult());
-                if (NumOfPlayers > 10) {
-                    GroupSize = NumOfPlayers / 2;
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Number Of Players");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Group Size is grater than 10 people " + "\n" + "Number of People is: " + NumOfPlayers + "\n" + "Group Size " + GroupSize);
-
-                    Stage stage1 = (Stage) alert.getDialogPane().getScene().getWindow();
-                    stage1.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
-
-                    alert.showAndWait();
-
-                } else if (NumOfPlayers > 3 && NumOfPlayers < 10) {
-
-                    GroupSize = NumOfPlayers / 3;
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Number Of Players");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Group Size is between 3 and 10 people" + "\n" + "Number of People is: " + NumOfPlayers + "\n" + "Group Size " + GroupSize);
-
-                    alert.showAndWait();
-
-
-                } else {
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Number Of Players");
-                    alert.setHeaderText(null);
-                    alert.setContentText("The number of people has to be at least 3." + "\n" + "Number of People " + NumOfPlayers + " Group Size " + GroupSize);
-
-                    Stage stage1 = (Stage) alert.getDialogPane().getScene().getWindow();
-                    stage1.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
-
-                    alert.showAndWait();
-
-                    System.exit(0);
-                }
-
-                System.exit(0);
+            System.exit(0);
+        }
 
             } else {
 
