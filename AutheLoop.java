@@ -184,7 +184,7 @@ public class AutheLoop extends Application {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Number Of Players");
             alert1.setHeaderText(null);
-            alert1.setContentText("Team Size is Greater than 55" + "\n" + "Number of Players is: " + NumOfPlayers + "\n" + " eam Size " + TeamSize);
+            alert1.setContentText("Team Size is Greater than 55" + "\n" + "Number of Players is: " + NumOfPlayers + "\n" + "Team Size " + TeamSize);
 
             Stage stage5 = (Stage) alert1.getDialogPane().getScene().getWindow();
             stage5.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
@@ -197,7 +197,7 @@ public class AutheLoop extends Application {
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("Number Of Players");
             alert1.setHeaderText(null);
-            alert1.setContentText("The number of Players has to be at least 3." + "\n" + "Number of Players is: " + NumOfPlayers + " Team Size " + TeamSize);
+            alert1.setContentText("The number of Players has to be at least 3." + "\n" + "Number of Players is: " + NumOfPlayers + "Team Size " + TeamSize);
 
             Stage stage6 = (Stage) alert1.getDialogPane().getScene().getWindow();
             stage6.getIcons().add(new Image(this.getClass().getResource("Alliance.png").toString()));
